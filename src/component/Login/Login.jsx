@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
-function Home() {
+function Login() {
   const history = useNavigate()
   const [email, setEmail] = useState(''); 
   const [password ,setPassword] = useState('') ;
@@ -16,7 +16,7 @@ function Home() {
       credentials: 'include'  
       
      }).then((res)=>{
-      if(res.ok) console.log(res)
+      if(res.ok) history('/')
       else {throw Error("The server is Not responding")}
      }).then((data)=>{
       console.log(data)
@@ -25,11 +25,11 @@ function Home() {
      })
   }
   return (
-  <div >
-    <div className=" flex ">
-     <h1 className= "font-[joan]  max-sm:text-lg sm:text-3xl w-1/2 bg-white rounded py-2 text-center">Imazinist, Where Every Find Tells a Story</h1>
+  <div className=" " >
+    <div className=" flex translate-y-40 ">
+     <h1 className= "font-[joan]  max-sm:text-lg sm:text-3xl  bg-white rounded py-2 text-center">Imazinist, Where Every Find Tells a Story</h1>
    
-       <div className="absolute mt-10 w-1/4 p-10 flex flex-col gap-4">
+       <div className=" mt-10 w-1/4 p-10 flex flex-col gap-4 ">
        <h1 className=" p-2 font-[joan] text-xl">Acess Your Imaginist Account</h1>
        <input type="email" className="w-full min-w-60 p-2 text-lg outline-none bg-transparent border-b border-black" placeholder="Email or Username" onChange={(e)=>{setEmail(e.target.value)}} value={email} required />
        <input type="password" className="w-full  min-w-60 p-2 text-lg outline-none bg-transparent border-b border-black " placeholder="Password" onChange={(e)=>{setPassword(e.target.value)}} value={password} required />
@@ -42,4 +42,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Login

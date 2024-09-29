@@ -10,7 +10,9 @@ function useFetch(url) {
   useEffect(()=>{
 
 
-    fetch(url)
+    fetch(url,{
+      credentials:'include'
+    })
     .then(res => {
        if(!res.ok) {throw Error("Some incorrect about Url or Data might be deleted")}
         return res.json()

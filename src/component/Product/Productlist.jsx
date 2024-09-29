@@ -1,21 +1,26 @@
 /* eslint-disable react/prop-types */
 
+import { useState } from "react"
+import Product from "./Product"
+
 // import { Link } from "react-router-dom"
 
 
 function Productlist({ products }) {
+   
 
 
     return (
      <>
 
-      <div className="products flex flex-wrap gap-1 px-20 w-full items-center justify-center font-[joan]">
+     
+     
+      <div className="products flex flex-wrap gap-2 px-20 w-full items-center justify-center font-[joan]">
   
       {products.map((product)=>(
-        <div className="product-detail text-black min-w-60 w-1/4  flex flex-col"  key={product._id}>
-          <img src={`https://mazn.onrender.com/images/uploads/${product.image}`} alt="" />
-          <h1 className="inline">{product.name}</h1> <p className="inline-block">{product.price}</p>
-        </div>
+        <div key={product._id} className=" min-w-60 w-1/4 relative ">
+          <Product product={product}/>
+          </div>
       ))}
       </div>
      
