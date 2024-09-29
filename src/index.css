@@ -18,3 +18,22 @@
 .customsize{
     width: calc( 100% - 20px );
 }
+
+.scrollbarX::-webkit-scrollbar{
+    margin-top: 6px;
+    display: none;
+}
+
+
+.mediafiles {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth; 
+    transition: scroll-left 2s ease-in-out; 
+  }
+  
+  .images-videos {
+    min-width: 100%;
+    transition: transform 1s ease-in-out; 
+  }
+  

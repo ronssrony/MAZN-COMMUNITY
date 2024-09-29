@@ -2,28 +2,19 @@ import { useEffect, useState } from "react"
 import useFetch from "../utils/useFetch"
 import { Link } from "react-router-dom"
 
-function Profilecart({data}) {
+function Profilecart({data , user}) {
   
     const [follow , setFollow] = useState('')
     const [pending , setPending] = useState(false)
     useEffect(()=>{
-        fetch('http://localhost:3000/api/myfollow',{
-            credentials:'include'
-        }).then((res)=>{
-            if(res.ok) return res.json() 
-                else {
-             throw Error('something went wrong') ;
-            } 
-        }).then((followers)=>{
-            if(followers.includes(data._id)){
+       
+            if(user&& user.follower.includes(data._id)){
                setFollow('Following')
             }
             else {
                 setFollow('Follow')
             }
-        }).catch((err)=>{
-            console.log(err.message)
-        })
+      
     },[data._id] )
     function handlefollow(){
         if(follow==='Follow'){
@@ -69,7 +60,7 @@ function Profilecart({data}) {
     }
     return (
         
-    <div className="px-10  "> 
+    <div className=" "> 
         <div className="img flex items-center gap-5 w-80">
             <img className="w-16 h-16 rounded-[50%] object-cover" src={`http://localhost:3000/images/uploads/${data.photo}`} alt="" />
             {data.name && <Link to={`/profile/${data._id}`} className=" text-lg  text-wrap ">{data.name}</Link>}

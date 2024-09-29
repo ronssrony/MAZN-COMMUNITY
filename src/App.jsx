@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Profile from './component/Profile/Profile.jsx';
 import Message from './component/Profile/Message.jsx'
 import Mymessages from './component/Profile/Mymessages.jsx'
+import AccoutSetting from './component/Profile/AccoutSetting.jsx'
  function App() {
   return (
 
@@ -25,6 +26,7 @@ import Mymessages from './component/Profile/Mymessages.jsx'
      <Route path='/profile' element={<Profile/>}/>
      <Route path='/message/:receiverId' element={<Message/>}/>
      <Route path='/mymessages' element={<Mymessages/>}/>
+     <Route path='/accountsetting' element={<AccoutSetting/>}/>
     
     </Routes>
     </div>
